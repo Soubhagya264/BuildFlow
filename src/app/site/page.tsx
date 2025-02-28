@@ -23,12 +23,13 @@ import { CardsCarousel } from "@/components/site/carousel";
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import AnimatedLink from "./design/animated-link";
+import { stripe } from "@/lib/stripe";
 
-export default function Home() {
-  // const prices = await stripe.prices.list({
-  //   product: process.env.NEXT_BUILDFLOW_PRODUCT_ID,
-  //   active: true,
-  // })
+export default async function Home() {
+  const prices = await stripe.prices.list({
+    product: process.env.NEXT_BUILDFLOW_PRODUCT_ID,
+    active: true,
+  })
   const content = [
     {
       title: "SaaS Website Builder",
@@ -138,35 +139,35 @@ export default function Home() {
 
           <div className="flex  justify-center gap-4 flex-wrap mt-6">
 
-            {pricingCards.map((card, idx) => (
+            {prices.data.map((card, idx) => (
 
 
-              <Card key={card.title} className={clsx('w-[300px] flex flex-col justify-between rounded-[22px] p-1 bg-gradient-to-r from-yellow-200 to-pink-200')}>
+              <Card key={card.nickname} className={clsx('w-[300px] flex flex-col justify-between rounded-[22px] p-1 bg-gradient-to-r from-yellow-200 to-pink-200')}>
                 <CardHeader>
                   <CardTitle
                     className={clsx({
-                      
+
                       'text-blue-900': true,
-                      'font-bold':true
-                      
-                      
-                      
-                    })} 
+                      'font-bold': true
+
+
+
+                    })}
                   >
-                    {card.title}
+                    {card.nickname}
                   </CardTitle>
-                  <CardDescription className="text-blue-600 font-semibold">{card.description}</CardDescription>
+                  <CardDescription className="text-blue-600 font-semibold">{pricingCards.find((c) => c.title === card.nickname)?.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <span className="text-4xl font-bold text-black ">{card.price}</span>
-                  {card.title !== "Starter" && (
-                    <span className=" text-gray-700">/month</span>
+                  <span className="text-4xl font-bold text-black ">{card.unit_amount && card.unit_amount / 100}</span>
+                  {card.nickname !== "Starter" && (
+                    <span className=" text-gray-700">{card.recurring?.interval}</span>
                   )}
                 </CardContent>
                 <CardFooter className="flex flex-col  items-start gap-4 ">
                   <div>
                     {pricingCards
-                      .find((c) => c.title === card.title)
+                      .find((c) => c.title === card.nickname)
                       ?.features.map((feature) => (
                         <div
                           key={feature}
@@ -177,12 +178,49 @@ export default function Home() {
                         </div>
                       ))}
                   </div>
-                  <AnimatedLink priceId={card.priceId} />
+                  <AnimatedLink priceId={card.id} />
                 </CardFooter>
               </Card>
 
 
             ))}
+            <Card key={pricingCards[0].title} className={clsx('w-[300px] flex flex-col justify-between rounded-[22px] p-1 bg-gradient-to-r from-yellow-200 to-pink-200')}>
+              <CardHeader>
+                <CardTitle
+                  className={clsx({
+
+                    'text-blue-900': true,
+                    'font-bold': true
+
+
+
+                  })}
+                >
+                  {pricingCards[0].title}
+                </CardTitle>
+                <CardDescription className="text-blue-600 font-semibold">{pricingCards[0].description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <span className="text-4xl font-bold text-black ">{pricingCards[0].price}</span>
+                {pricingCards[0].title !== "Starter" && (
+                  <span className=" text-gray-700">{pricingCards[0].description}</span>
+                )}
+              </CardContent>
+              <CardFooter className="flex flex-col  items-start gap-4 ">
+                <div>
+
+                  <div
+                    key={"free"}
+                    className="flex gap-2 text-black"
+                  >
+                    <Check />
+                    <p>{pricingCards[0].features}</p>
+                  </div>
+
+                </div>
+                <AnimatedLink priceId={pricingCards[0].priceId} />
+              </CardFooter>
+            </Card>
           </div>
 
         </LampContainer>

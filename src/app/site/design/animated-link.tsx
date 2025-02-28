@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 
-export default function AnimatedLink({ priceId }: { priceId: string }) {
+export default function AnimatedLink({ priceId }: { priceId: string | null}) {
     return (
         <Link href={`/agency?plan=${priceId}`} className="relative w-full">
             {/* Animated Gradient Border */}
