@@ -38,6 +38,8 @@ export const subscriptionCreated = async (
       update: data,
     });
     console.log(`🟢 Created Subscription for ${subscription.id}`);
+    return res;
+    
   } catch (error) {
     console.log("🔴 Error from Create action", error);
   }
