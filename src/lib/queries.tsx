@@ -24,31 +24,36 @@ import { z } from 'zod'
 import { revalidatePath } from 'next/cache'
 const clerk = clerkClient();
 export const getAuthUserDetails = async () => {
-  const user = await currentUser()
-  if (!user) {
-    return
-  }
+  try {
+    const user = await currentUser()
+    if (!user) {
+      return null
+    }
 
-  const userData = await db.user.findUnique({
-    where: {
-      email: user.emailAddresses[0].emailAddress,
-    },
-    include: {
-      Agency: {
-        include: {
-          SidebarOption: true,
-          SubAccount: {
-            include: {
-              SidebarOption: true,
+    const userData = await db.user.findUnique({
+      where: {
+        email: user.emailAddresses[0].emailAddress,
+      },
+      include: {
+        Agency: {
+          include: {
+            SidebarOption: true,
+            SubAccount: {
+              include: {
+                SidebarOption: true,
+              },
             },
           },
         },
+        Permissions: true,
       },
-      Permissions: true,
-    },
-  })
+    })
 
-  return userData
+    return userData
+  } catch (error) {
+    console.error('Error in getAuthUserDetails:', error)
+    return null
+  }
 }
 
 export const saveActivityLogsNotification = async ({
@@ -286,7 +291,8 @@ export const upsertAgency = async (agency: Agency, price?: Plan) => {
     })
     return agencyDetails
   } catch (error) {
-    console.log(error)
+    console.error('Error in upsertAgency:', error)
+    throw new Error('Failed to create/update agency. Please try again.')
   }
 }
 
