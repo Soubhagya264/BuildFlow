@@ -17,7 +17,7 @@ const stripeWebhookEvents = new Set([
 
 export async function POST(req: NextRequest) {
   let stripeEvent: Stripe.Event;
-  
+
   // Get the raw body as a string
   const body = await req.text();
   const sig = headers().get("Stripe-Signature");
@@ -25,11 +25,13 @@ export async function POST(req: NextRequest) {
     ? process.env.STRIPE_WEBHOOK_SECRET_LIVE
     : process.env.STRIPE_WEBHOOK_SECRET;
 
-  console.log("Webhook Debug Info:", {
+  console.log("Webhook Info:", {
     hasSignature: !!sig,
     signature: sig,
     hasWebhookSecret: !!webhookSecret,
-    webhookSecret: webhookSecret ? `${webhookSecret.substring(0, 10)}...` : "none",
+    webhookSecret: webhookSecret
+      ? `${webhookSecret.substring(0, 10)}...`
+      : "none",
     bodyLength: body.length,
     bodyPreview: body.substring(0, 100) + "...",
   });
@@ -43,11 +45,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Construct the event with the raw body
-    stripeEvent = stripe.webhooks.constructEvent(
-      body,
-      sig,
-      webhookSecret
-    );
+    stripeEvent = stripe.webhooks.constructEvent(body, sig, webhookSecret);
 
     if (stripeWebhookEvents.has(stripeEvent.type)) {
       const subscription = stripeEvent.data.object as Stripe.Subscription;
@@ -69,7 +67,10 @@ export async function POST(req: NextRequest) {
               subscription,
               subscription.customer as string
             );
-            console.log("Subscription processed successfully:", subscription.id);
+            console.log(
+              "Subscription processed successfully:",
+              subscription.id
+            );
           } else {
             console.log("Subscription not active:", {
               id: subscription.id,
