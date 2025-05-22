@@ -87,7 +87,7 @@ const LaunchPad = async ({ params, searchParams }: Props) => {
                             <div className="flex justify-between items-center w-full h-20 border p-4 rounded-lg ">
                                 <div className="flex items-center gap-4">
                                     <Image
-                                        src="/appstore.png"
+                                        src="/assets/buildflow.png"
                                         alt="App logo"
                                         height={80}
                                         width={80}
@@ -100,7 +100,7 @@ const LaunchPad = async ({ params, searchParams }: Props) => {
                             <div className="flex justify-between items-center w-full h-20 border p-4 rounded-lg">
                                 <div className="flex items-center gap-4">
                                     <Image
-                                        src="/public/assets/stripelogo.png"
+                                        src="/assets/stripelogo.png"
                                         alt="App logo"
                                         height={80}
                                         width={80}
