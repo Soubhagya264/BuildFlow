@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 html,
 body {
   height: 100vh;
@@ -18,83 +20,193 @@ R (0)
 G (110)
 B (255 */
 @layer base {
-  :root {
-    /* Name: custom color palette
-     Author: Ilias Ism
-     URL: https://gradient.page */
-
-    /* CSS: .bg-gradient { background: var(--gradient) } */
-   
-    --gradient: linear-gradient(to top left, #007adf, #68f880);
-
-    --background: 25 65% 3.6%;
-    --foreground: 25 10% 97.25%;
-
-    --muted: 25 50% 13.5%;
-    --muted-foreground: 25 10% 54.5%;
-
-    --popover: 25 45% 5.8500000000000005%;
-    --popover-foreground: 25 10% 97.25%;
-
-    --card: 25 45% 5.8500000000000005%;
-    --card-foreground: 25 10% 97.25%;
-
-    --border: 25 50% 13.5%;
-    --input: 25 50% 13.5%;
-
-    --primary: 25 100% 45%;
-    --primary-foreground: 25 10% 97.25%;
-
-    --secondary: 25 50% 13.5%;
-    --secondary-foreground: 25 10% 97.25%;
-
-    --accent: 25 50% 13.5%;
-    --accent-foreground: 25 10% 97.25%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 25 10% 97.25%;
-
-    --ring: 25 100% 45%;
-
+  /* :root {
+    --background: 0 7.1429% 94.5098%;
+    --foreground: 197.8378 39.7849% 18.2353%;
+    --card: 0 0% 100%;
+    --card-foreground: 197.8378 39.7849% 18.2353%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 197.8378 39.7849% 18.2353%;
+    --primary: 218.8235 100.0000% 70%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 6.0606% 87.0588%;
+    --secondary-foreground: 194 16.4835% 35.6863%;
+    --muted: 0 7.1429% 94.5098%;
+    --muted-foreground: 200 10.9312% 48.4314%;
+    --accent: 270.0000 50.0000% 97.6471%;
+    --accent-foreground: 196.3636 23.0769% 28.0392%;
+    --destructive: 339.8936 100% 63.1373%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 6.0606% 87.0588%;
+    --input: 0 6.0606% 87.0588%;
+    --ring: 218.8235 100.0000% 70%;
+    --chart-1: 218.8235 100.0000% 70%;
+    --chart-2: 223.4831 90.8163% 61.5686%;
+    --chart-3: 224.5509 69.8745% 53.1373%;
+    --chart-4: 223.4483 65.6109% 43.3333%;
+    --chart-5: 222.1154 56.5217% 36.0784%;
+    --sidebar: 0 6.0606% 87.0588%;
+    --sidebar-foreground: 197.8378 39.7849% 18.2353%;
+    --sidebar-primary: 218.8235 100.0000% 70%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270.0000 50.0000% 97.6471%;
+    --sidebar-accent-foreground: 196.3636 23.0769% 28.0392%;
+    --sidebar-border: 0 6.0606% 87.0588%;
+    --sidebar-ring: 218.8235 100.0000% 70%;
+    --font-sans: Merriweather, serif;
+    --font-serif: Merriweather, serif;
+    --font-mono: Roboto Mono, monospace;
+    --radius: 1.25rem;
+    --shadow-2xs: 2px 2px 10px 4px hsl(220.0000 4.7619% 62.9412% / 0.09);
+    --shadow-xs: 2px 2px 10px 4px hsl(220.0000 4.7619% 62.9412% / 0.09);
+    --shadow-sm: 2px 2px 10px 4px hsl(220.0000 4.7619% 62.9412% / 0.18), 2px 1px 2px 3px hsl(220.0000 4.7619% 62.9412% / 0.18);
+    --shadow: 2px 2px 10px 4px hsl(220.0000 4.7619% 62.9412% / 0.18), 2px 1px 2px 3px hsl(220.0000 4.7619% 62.9412% / 0.18);
+    --shadow-md: 2px 2px 10px 4px hsl(220.0000 4.7619% 62.9412% / 0.18), 2px 2px 4px 3px hsl(220.0000 4.7619% 62.9412% / 0.18);
+    --shadow-lg: 2px 2px 10px 4px hsl(220.0000 4.7619% 62.9412% / 0.18), 2px 4px 6px 3px hsl(220.0000 4.7619% 62.9412% / 0.18);
+    --shadow-xl: 2px 2px 10px 4px hsl(220.0000 4.7619% 62.9412% / 0.18), 2px 8px 10px 3px hsl(220.0000 4.7619% 62.9412% / 0.18);
+    --shadow-2xl: 2px 2px 10px 4px hsl(220.0000 4.7619% 62.9412% / 0.45);
+    --tracking-normal: 0em;
+    --spacing: 0.25rem;
   }
 
   .dark {
-    /* Name: custom color palette
-     Author: Ilias Ism
-     URL: https://gradient.page */
+    --background: 240 32.00005% 6%;
+    --foreground: 240 40% 96.0784%;
 
-    /* CSS: .bg-gradient { background: var(--gradient) } */
-    --gradient: linear-gradient(to top left,#f7ff00,#db36a4);
+    --card: 240 24% 10%;
+    --card-foreground: 240 40% 96.0784%;
 
-    --background: 66 65% 4%;
-    --foreground: 66 10% 97.5%;
+    --popover: 240 22% 10%;
+    --popover-foreground: 240 40% 96.0784%;
 
-    --muted: 220 50% 13.2%;
-    --muted-foreground: 220 10% 54.4%;
+    --secondary: 240 22% 10%;
+    --secondary-foreground: 240 40% 96.0784%;
 
-    --popover: 220 45% 5.72%;
-    --popover-foreground: 220 10% 97.2%;
+    --muted: 240 22% 10%;
+    --muted-foreground: 197.1429 12.8834% 68.0392%;
 
-    --card: 220 45% 5.72%;
-    --card-foreground: 220 10% 97.2%;
+    --accent: 240 22% 10%;
+    --accent-foreground: 240 40% 96.0784%;
 
-    --border: 220 50% 13.2%;
-    --input: 220 50% 13.2%;
+    --border: 240 22% 10%;
+    --input: 240 22% 10%;
 
-    --primary: 220 100% 44%;
-    --primary-foreground: 220 10% 97.2%;
-
-    --secondary: 220 50% 13.2%;
-    --secondary-foreground: 220 10% 97.2%;
-
-    --accent: 220 50% 13.2%;
-    --accent-foreground: 220 10% 97.2%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 220 10% 97.2%;
-
-    --ring: 220 100% 44%;
-  }
+    --sidebar: 240 22% 10%;
+    --sidebar-foreground: 240 40% 96.0784%;
+    --sidebar-border: 240 22% 10%;
+    --sidebar-ring: 214.7368 100% 77.6471%;
+    --font-sans: Merriweather, serif;
+    --font-serif: Merriweather, serif;
+    --font-mono: Roboto Mono, monospace;
+    --radius: 1.25rem;
+    --shadow-2xs: 2px 2px 10px 4px hsl(0 0% 10.1961% / 0.09);
+    --shadow-xs: 2px 2px 10px 4px hsl(0 0% 10.1961% / 0.09);
+    --shadow-sm: 2px 2px 10px 4px hsl(0 0% 10.1961% / 0.18), 2px 1px 2px 3px hsl(0 0% 10.1961% / 0.18);
+    --shadow: 2px 2px 10px 4px hsl(0 0% 10.1961% / 0.18), 2px 1px 2px 3px hsl(0 0% 10.1961% / 0.18);
+    --shadow-md: 2px 2px 10px 4px hsl(0 0% 10.1961% / 0.18), 2px 2px 4px 3px hsl(0 0% 10.1961% / 0.18);
+    --shadow-lg: 2px 2px 10px 4px hsl(0 0% 10.1961% / 0.18), 2px 4px 6px 3px hsl(0 0% 10.1961% / 0.18);
+    --shadow-xl: 2px 2px 10px 4px hsl(0 0% 10.1961% / 0.18), 2px 8px 10px 3px hsl(0 0% 10.1961% / 0.18);
+    --shadow-2xl: 2px 2px 10px 4px hsl(0 0% 10.1961% / 0.45);
+  } */
+     :root {
+       --background: 0 0% 100%;
+       --foreground: 0 0% 12.9412%;
+       --card: 0 0% 100%;
+       --card-foreground: 0 0% 12.9412%;
+       --popover: 0 0% 100%;
+       --popover-foreground: 0 0% 12.9412%;
+       --primary: 174.5455 100% 32.3529%;
+       --primary-foreground: 0 0% 100%;
+       --secondary: 199.5918 19.5219% 50.7843%;
+       --secondary-foreground: 0 0% 100%;
+       --muted: 174.1935 44.9275% 86.4706%;
+       --muted-foreground: 201.1765 16.5049% 59.6078%;
+       --accent: 171.7143 100% 41.1765%;
+       --accent-foreground: 0 0% 100%;
+       --destructive: 1.2766 88.6792% 68.8235%;
+       --destructive-foreground: 0 0% 100%;
+       --border: 174.1935 44.9275% 86.4706%;
+       --input: 0 0% 74.1176%;
+       --ring: 171.7143 100% 41.1765%;
+       --chart-1: 174.3624 66.2222% 44.1176%;
+       --chart-2: 87.7419 53.1429% 65.6863%;
+       --chart-3: 45.1613 100% 63.5294%;
+       --chart-4: 14.2308 100% 69.4118%;
+       --chart-5: 291.3514 49.3333% 55.8824%;
+       --sidebar: 0 0% 96.0784%;
+       --sidebar-foreground: 199.5918 19.5219% 50.7843%;
+       --sidebar-primary: 209.7143 83.3333% 50.5882%;
+       --sidebar-primary-foreground: 0 0% 100%;
+       --sidebar-accent: 230.8065 51.2397% 52.5490%;
+       --sidebar-accent-foreground: 0 0% 100%;
+       --sidebar-border: 200.0000 15.0000% 92.1569%;
+       --sidebar-ring: 209.7143 83.3333% 50.5882%;
+       --font-sans: Merriweather, serif;
+       --font-serif: Merriweather, serif;
+       --font-mono: Merriweather, serif;
+       --radius: 0.2rem;
+       --shadow-2xs: 1px 6px 20px 2px hsl(0 0% 0% / 0.09);
+       --shadow-xs: 1px 6px 20px 2px hsl(0 0% 0% / 0.09);
+       --shadow-sm: 1px 6px 20px 2px hsl(0 0% 0% / 0.17), 1px 1px 2px 1px hsl(0 0% 0% / 0.17);
+       --shadow: 1px 6px 20px 2px hsl(0 0% 0% / 0.17), 1px 1px 2px 1px hsl(0 0% 0% / 0.17);
+       --shadow-md: 1px 6px 20px 2px hsl(0 0% 0% / 0.17), 1px 2px 4px 1px hsl(0 0% 0% / 0.17);
+       --shadow-lg: 1px 6px 20px 2px hsl(0 0% 0% / 0.17), 1px 4px 6px 1px hsl(0 0% 0% / 0.17);
+       --shadow-xl: 1px 6px 20px 2px hsl(0 0% 0% / 0.17), 1px 8px 10px 1px hsl(0 0% 0% / 0.17);
+       --shadow-2xl: 1px 6px 20px 2px hsl(0 0% 0% / 0.43);
+       --tracking-normal: 0.05em;
+       --spacing: 0.24rem;
+     }
+  
+     .dark {
+       --background: 240 13.7255% 10%;
+       --foreground: 0 0% 100%;
+       --card: 0 0% 7.0588%;
+       --card-foreground: 0 0% 100%;
+       --popover: 0 0% 11.7647%;
+       --popover-foreground: 0 0% 100%;
+       --primary: 174.1259 94.7020% 70.3922%;
+       --primary-foreground: 0 0% 0%;
+       --secondary: 0 0% 27.0588%;
+       --secondary-foreground: 0 0% 100%;
+       --muted: 220 8.2569% 21.3725%;
+       --muted-foreground: 198.7500 16.0000% 80.3922%;
+       --accent: 165.3782 100.0000% 76.6667%;
+       --accent-foreground: 0 0% 0%;
+       --destructive: 1.2766 88.6792% 68.8235%;
+       --destructive-foreground: 0 0% 100%;
+       --border: 0 0% 16.0784%;
+       --input: 240 0.5587% 35.0980%;
+       --ring: 165.3782 100.0000% 76.6667%;
+       --chart-1: 174.3624 66.2222% 44.1176%;
+       --chart-2: 87.7419 53.1429% 65.6863%;
+       --chart-3: 45.1613 100% 63.5294%;
+       --chart-4: 14.2308 100% 69.4118%;
+       --chart-5: 291.3514 49.3333% 55.8824%;
+       --sidebar: 0 0% 9.4118%;
+       --sidebar-foreground: 198.7500 16.0000% 80.3922%;
+       --sidebar-primary: 206.7568 94.8718% 84.7059%;
+       --sidebar-primary-foreground: 0 0% 12.9412%;
+       --sidebar-accent: 173.3333 100% 91.1765%;
+       --sidebar-accent-foreground: 0 0% 7.0588%;
+       --sidebar-border: 201.4286 18.9189% 29.0196%;
+       --sidebar-ring: 206.7568 94.8718% 84.7059%;
+       --font-sans: Merriweather, serif;
+       --font-serif: Merriweather, serif;
+       --font-mono: Merriweather, serif;
+       --radius: 0.2rem;
+       --shadow-2xs: 1px 6px 20px 2px hsl(0 0% 0% / 0.09);
+       --shadow-xs: 1px 6px 20px 2px hsl(0 0% 0% / 0.09);
+       --shadow-sm: 1px 6px 20px 2px hsl(0 0% 0% / 0.17), 1px 1px 2px 1px hsl(0 0% 0% / 0.17);
+       --shadow: 1px 6px 20px 2px hsl(0 0% 0% / 0.17), 1px 1px 2px 1px hsl(0 0% 0% / 0.17);
+       --shadow-md: 1px 6px 20px 2px hsl(0 0% 0% / 0.17), 1px 2px 4px 1px hsl(0 0% 0% / 0.17);
+       --shadow-lg: 1px 6px 20px 2px hsl(0 0% 0% / 0.17), 1px 4px 6px 1px hsl(0 0% 0% / 0.17);
+       --shadow-xl: 1px 6px 20px 2px hsl(0 0% 0% / 0.17), 1px 8px 10px 1px hsl(0 0% 0% / 0.17);
+       --shadow-2xl: 1px 6px 20px 2px hsl(0 0% 0% / 0.43);
+     }
+  
+     body {
+       letter-spacing: var(--tracking-normal);
+     }
 }
 
 @layer base {
@@ -111,7 +223,9 @@ B (255 */
   background-image: radial-gradient(rgb(208, 255, 53) 1px, transparent 1px);
   background-size: 25px 25px;
 }
-
+.glow-text {
+  text-shadow: 0 0 10px #fff, 0 0 30px #38f8db, 0 0 50px #60e8fa;
+}
 .use-automation-zoom-in {
   animation: automation-zoom-in 0.5s;
 }

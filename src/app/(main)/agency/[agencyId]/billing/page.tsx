@@ -101,13 +101,13 @@ const page = async ({ params }: Props) => {
             agencySubscription?.Subscription?.active === true
               ? currentPlanDetails?.features || []
               : currentPlanDetails?.features ||
-              pricingCards.find((pricing) => pricing.title === 'Starter')
+              pricingCards.find((pricing) => pricing.planName === 'Starter')
                 ?.features ||
               []
           }
           title={
             agencySubscription?.Subscription?.active === true
-              ? currentPlanDetails?.title || 'Starter'
+              ? currentPlanDetails?.planName || 'Starter'
               : 'Starter'
           }
         />

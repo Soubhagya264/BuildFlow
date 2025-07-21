@@ -100,7 +100,6 @@ const SubscriptionFormWrapper = ({ customerId, planExists }: Props) => {
                         )}
                     </Card>
                 ))}
-
                 {options.clientSecret && !planExists && (
                     <>
                         <h1 className="text-xl">Payment Method</h1>
@@ -112,7 +111,6 @@ const SubscriptionFormWrapper = ({ customerId, planExists }: Props) => {
                         </Elements>
                     </>
                 )}
-
                 {!options.clientSecret && selectedPriceId && (
                     <div className="flex items-center justify-center w-full h-40">
                         <Loading />

@@ -24,6 +24,12 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import AnimatedLink from "./design/animated-link";
 import { stripe } from "@/lib/stripe";
+import { HeroSection } from "@/components/global/hero-section";
+import { PricingCard } from "@/components/global/glassy-pricing";
+import { Pricing } from "@/components/global/pricing";
+import { Features } from "@/components/global/features";
+import TemplatesGrid from "@/components/global/templateGrid";
+import Testimonials from "@/components/global/testimonials";
 
 export default async function Home() {
   const prices = await stripe.prices.list({
@@ -96,142 +102,18 @@ export default async function Home() {
       ),
     },
   ];
-
-
-
   return (
     <>
-      <div className=" mt-[150px] flex justify-center items-center text-center flex-col">
-
-
-        <Vortex
-
-          particleCount={20}
-        >
-          <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#161616_1px,transparent_1px),linear-gradient(to_bottom,#161616_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10" />
-          <p className="text-center text-xl">Run your agency, in one place</p>
-          <div className="bg-gradient-to-r from-primary to-secondary-foreground text-transparent bg-clip-text relative">
-            <h3 className="text-6xl font-bold mt-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-fuchsia-500 text-center md:text-[200px]"
-              style={{ textShadow: "2px 2px 4px rgba(255, 255, 255, 0.5)" }}
-            >
-              BuildFlow
-            </h3>
-          </div>
-          <div className="flex justify-center items-center relative md:mt-[-20px]">
-            <Image
-              src={'/assets/preview.jpg'}
-              alt="banner image"
-              height={400}
-              width={650}
-              className="rounded-tl-2xl rounded-tr-2xl border-2 border-gray-300 shadow-lg hover:shadow-2xl transition-shadow duration-300"
-            />
-          </div>
-        </Vortex>
-      </div>
+      <HeroSection />
       <section className="flex justify-center items-center flex-col gap-4 ">
-        <LampContainer>
-          <h2 className="text-4xl text-center"> Choose what fits you right</h2>
-          <p className="text-muted-foreground text-center">
-            Our straightforward pricing plans are tailored to meet your needs. If
-            {" you're"} not <br />
-            ready to commit you can get started for free.
-          </p>
-
-          <div className="flex  justify-center gap-4 flex-wrap mt-6">
-
-            {prices.data.map((card, idx) => (
-
-
-              <Card key={card.nickname} className={clsx('w-[300px] flex flex-col justify-between rounded-[22px] p-1 bg-gradient-to-r from-yellow-200 to-pink-200')}>
-                <CardHeader>
-                  <CardTitle
-                    className={clsx({
-
-                      'text-blue-900': true,
-                      'font-bold': true
-
-
-
-                    })}
-                  >
-                    {card.nickname}
-                  </CardTitle>
-                  <CardDescription className="text-blue-600 font-semibold">{pricingCards.find((c) => c.title === card.nickname)?.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <span className="text-4xl font-bold text-black ">{card.unit_amount && card.unit_amount / 100}</span>
-                  {card.nickname !== "Starter" && (
-                    <span className=" text-gray-700">{card.recurring?.interval}</span>
-                  )}
-                </CardContent>
-                <CardFooter className="flex flex-col  items-start gap-4 ">
-                  <div>
-                    {pricingCards
-                      .find((c) => c.title === card.nickname)
-                      ?.features.map((feature) => (
-                        <div
-                          key={feature}
-                          className="flex gap-2 text-black"
-                        >
-                          <Check />
-                          <p>{feature}</p>
-                        </div>
-                      ))}
-                  </div>
-                  <AnimatedLink priceId={card.id} />
-                </CardFooter>
-              </Card>
-
-
-            ))}
-            <Card key={pricingCards[0].title} className={clsx('w-[300px] flex flex-col justify-between rounded-[22px] p-1 bg-gradient-to-r from-yellow-200 to-pink-200')}>
-              <CardHeader>
-                <CardTitle
-                  className={clsx({
-
-                    'text-blue-900': true,
-                    'font-bold': true
-
-
-
-                  })}
-                >
-                  {pricingCards[0].title}
-                </CardTitle>
-                <CardDescription className="text-blue-600 font-semibold">{pricingCards[0].description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <span className="text-4xl font-bold text-black ">{pricingCards[0].price}</span>
-                {pricingCards[0].title !== "Starter" && (
-                  <span className=" text-gray-700">{pricingCards[0].description}</span>
-                )}
-              </CardContent>
-              <CardFooter className="flex flex-col  items-start gap-4 ">
-                <div>
-
-                  <div
-                    key={"free"}
-                    className="flex gap-2 text-black"
-                  >
-                    <Check />
-                    <p>{pricingCards[0].features}</p>
-                  </div>
-
-                </div>
-                <AnimatedLink priceId={pricingCards[0].priceId} />
-              </CardFooter>
-            </Card>
-          </div>
-
-        </LampContainer>
+        <Features />
+        <Pricing />
+        <TemplatesGrid />
       </section >
       <div className="">
         <StickyScroll content={content} />
-        <CardsCarousel />
+        <Testimonials />
       </div>
-
     </>
   );
-
-
 }

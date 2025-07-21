@@ -9,10 +9,18 @@ import ModalProvider from "@/providers/modal-providers";
 import { Toaster } from '@/components/ui/toaster'
 import { Toaster as SonnarToaster } from '@/components/ui/sonner'
 const font = DM_Sans({ subsets: ['latin'] })
+import { Merriweather } from "next/font/google";
 export const metadata: Metadata = {
   title: "BuildFlow",
   description: "All in one Agency Solution",
 };
+
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"], 
+  style: ["normal", "italic"],   // optional
+  display: "swap",               
+});
 
 export default function RootLayout({
   children,
@@ -25,7 +33,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <ClerkProvider afterSignOutUrl='/' appearance={{ baseTheme: dark }}>
-        <body className={font.className}>
+        <body className={merriweather.className}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

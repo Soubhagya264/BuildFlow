@@ -30,33 +30,57 @@ import Warning from "@/components/icons/warning";
 
 export const pricingCards = [
   {
-    title: "Starter",
-    description: "Perfect for trying out buildflow",
+    planName: "Starter",
+    description: "Perfect for trying out BuildFlow",
     price: "Free",
-    duration: "",
-    highlight: "Key features",
-    features: ["3 Sub accounts", "2 Team members", "Unlimited pipelines"],
+    features: [
+      "Custom drag & drop editor",
+      "Limited AI prompts per month",
+      "3 sub-accounts",
+      "2 team members",
+      "Unlimited pipelines",
+    ],
+    buttonText: "Get Started",
+    buttonVariant: "outlined",
     priceId: "",
+     // ⬅️ makes Starter button outlined
   },
   {
-    title: "Unlimited SaaS",
-    description: "The ultimate agency kit",
-    price: "$199",
-    duration: "month",
-    highlight: "Key features",
-    features: ["Rebilling", "24/7 Support team"],
-    priceId: "price_1QuUPCSE0O1YVp07BYQNr48R",
-  },
-  {
-    title: "Basic",
+    planName: "Basic",
     description: "For serious agency owners",
-    price: "$49",
-    duration: "month",
-    highlight: "Everything in Starter, plus",
-    features: ["Unlimited Sub accounts", "Unlimited Team members"],
-    priceId: "price_1QuUPCSE0O1YVp07YiIroInV",
+    price: "49",
+    features: [
+      "Unlimited sub-accounts",
+      "Unlimited team members",
+      "Advanced drag & drop components",
+      "AI section & page generation",
+      "Premium website templates",
+      "Custom domains & SSL",
+    ],
+    buttonText: "Choose Basic",
+    buttonVariant: "primary",
+     priceId: "price_1QuUPCSE0O1YVp07YiIroInV",
+  },
+  {
+    planName: "Unlimited SaaS",
+    description: "The ultimate agency kit",
+    price: "199",
+    features: [
+      "White-label builder",
+      "Unlimited AI prompts per month",
+      "Client portal & user management",
+      "Rebilling & usage-based pricing",
+      "Priority 24/7 support team",
+      "Dedicated onboarding specialist",
+    ],
+    buttonText: "Go Unlimited",
+    isPopular: true, // ⬅️ highlights with border and badge
+    buttonVariant: "primary",
+    priceId: "price_1QuUPCSE0O1YVp07BYQNr48R"
   },
 ];
+
+
 
 export const addOnProducts = [
   { title: "Priority Support", id: "prod_Ro7jftYpff7tyJ" },

@@ -2,7 +2,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/f
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-10 mt-10">
+    <footer className="md:rounded-t-6xl mt-2 relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 py-12 lg:py-16">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-5 md:px-10">
         <div className="mb-6 md:mb-0">
           <h3 className="text-2xl font-bold">BuildFlow</h3>
