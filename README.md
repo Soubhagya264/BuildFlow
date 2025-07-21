@@ -1,5 +1,7 @@
 Project Demo look
-![Screenshot 2025-03-01 231947](https://github.com/user-attachments/assets/ca573cfd-0de1-4292-81b6-e073d9447e16)
+![Uploa<img width="1875" height="865" alt="Screenshot 2025-07-21 120906" src="https://github.com/user-attachments/assets/4ada50d5-8adf-4f4c-ac19-24ab50f25e84" />
+ding Scr<img width="1882" height="857" alt="Screenshot 2025-07-21 120939" src="https://github.com/user-attachments/assets/e75b95d5-b86d-4b49-8753-e2964352b9e2" />
+eenshot 2025-07-21 120820.png…]()
 ![Screenshot (147)](https://github.com/user-attachments/assets/7b37f106-5d61-43d3-b309-879b9a9feedc)
 ![Screenshot (146)](https://github.com/user-attachments/assets/bfe02c78-049c-44cf-8ba8-d3d27ac8a18f)
 ![Screenshot (145)](https://github.com/user-attachments/assets/644c422d-cff8-489c-bdf5-2a3d1f067466)
