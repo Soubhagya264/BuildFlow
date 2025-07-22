@@ -23,7 +23,8 @@ export const TextEffectComponent = () => {
                 fontSize: "70px",
                 fontWeight: 600
             }}
-            color={isDark ? "rgb(255, 255, 255)" : "rgb(20, 20, 20)"}
+            color={!isDark ? "rgb(135, 133, 133)" : "rgb(255, 255, 255)"
+            }
             spread={5}
             density={5}
             animation={{
@@ -105,7 +106,7 @@ export default function VaporizeTextCycle({
     animation = {
         vaporizeDuration: 1,
         fadeInDuration: 2,
-        waitDuration:3,
+        waitDuration: 3,
     },
     direction = "left-to-right",
     alignment = "left",
