@@ -2,9 +2,20 @@
 
 import { useTheme } from "next-themes";
 import React, { useRef, useEffect, useState, createElement, useMemo, useCallback, memo } from "react";
+
+
 export const TextEffectComponent = () => {
     const { theme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null; // or a loader/skeleton
+
     const isDark = theme === "dark";
+
     return (
         <VaporizeTextCycle
             texts={["Build and Ship", "10x faster with BuildFlow"]}
@@ -24,8 +35,8 @@ export const TextEffectComponent = () => {
             alignment="left"
             tag={Tag.H1}
         />
-    )
-}
+    );
+};
 
 export enum Tag {
     H1 = "h1",
